@@ -22,5 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index,name='index'),
     path('about',views.about,name='about'),
-    path('about/info',views.info,name='info')
+    path('about/info',views.info,name='info'),
+    path('remove',views.removepunc,name='removepunc'),
+    path('Caps',views.capfirst,name='capfirst')
 ]

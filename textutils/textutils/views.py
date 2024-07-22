@@ -1,6 +1,7 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 def index(request):
-    return  HttpResponse("hello")
+    return render(request,'index.html')
 def about(request):
     return HttpResponse('''<main style="padding: 20px;">
         <section style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
@@ -62,3 +63,8 @@ def info(response):
                 Feel free to reach out to me via email at <a href="mailto:someone@example.com" style="color: #4CAF50;">someone@example.com</a>.
             </p>
         </section>''');
+def removepunc(request):
+    text=request.GET.get('text','default')
+    return HttpResponse("remove punctuation");
+def capfirst(request):
+    return HttpResponse("Capitalize");
