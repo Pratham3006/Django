@@ -68,3 +68,15 @@ def removepunc(request):
     return HttpResponse("remove punctuation");
 def capfirst(request):
     return HttpResponse("Capitalize");
+def analyze(request):
+    text=request.GET.get('text','default')
+    removepunch=request.GET.get('removepunch','default');
+    print(removepunch)
+    punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~''';
+    analyzed=""
+    for char in text:
+        if char not in punctuations:
+            analyzed=analyzed+char
+
+    params={'purpose':'Removed Punctuation','analyzed_text':analyzed}
+    return render(request,"Analyze.html",params);
