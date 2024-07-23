@@ -25,5 +25,6 @@ urlpatterns = [
     path('about/info',views.info,name='info'),
     path('remove',views.removepunc,name='removepunc'),
     path('Caps',views.capfirst,name='capfirst'),
-    path('Analyze',views.analyze,name='analyze')
+    path('Analyze',views.analyze,name='analyze'),
+    path('Register',views.registartion,name='registartion')
 ]

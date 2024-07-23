@@ -71,6 +71,11 @@ def capfirst(request):
 def analyze(request):
     text=request.GET.get('text','default')
     removepunch=request.GET.get('removepunch','default');
+    name = request.GET.get('name', 'default');
+    email = request.GET.get('email', 'default');
+    age = request.GET.get('age', 'default');
+    dob = request.GET.get('dob', 'default');
+    print(name, email, age, dob);
     print(removepunch)
     punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~''';
     analyzed=""
@@ -78,5 +83,7 @@ def analyze(request):
         if char not in punctuations:
             analyzed=analyzed+char
 
-    params={'purpose':'Removed Punctuation','analyzed_text':analyzed}
+    params={'purpose':'Removed Punctuation','analyzed_text':analyzed,'name': name, 'email': email, 'age': age, 'dob': dob}
     return render(request,"Analyze.html",params);
+def registartion(request):
+    return render(request,'Form.html');
